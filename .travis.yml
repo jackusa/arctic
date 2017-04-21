@@ -22,8 +22,6 @@ matrix:
         - brew update
         - brew install mongodb
         - brew install gcc
-        - virtualenv env -p python
-        - source env/bin/activate
 
 install:
   - mongo --version
