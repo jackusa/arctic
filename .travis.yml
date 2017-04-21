@@ -20,7 +20,7 @@ matrix:
       language: generic
       before_install:
         - brew update
-        - travis_wait 90 brew install gcc --without-multilib
+        - brew install gcc
         - brew install python
         - virtualenv env -p python
         - source env/bin/activate
