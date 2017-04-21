@@ -1,27 +1,26 @@
-sudo: false
-
-matrix:
-    include:
-    - os: linux
-      dist: precise
-    -os: osx
-
 language: python
     python:
         - "2.7"
         - "3.5"
         - "3.6"
-addons:
-  apt:
-    sources:
-      - mongodb-3.2-precise
-    packages:
-      - mongodb-org-server
-      - mongodb-org-shell
-services:
-   - mongodb
-   
-   
+sudo: false
+
+matrix:
+  include:
+    - os: linux
+      dist: precise
+      addons:
+        apt:
+          sources:
+            - mongodb-3.2-precise
+          packages:
+            - mongodb-org-server
+            - mongodb-org-shell
+      services:
+        - mongodb
+    
+    - os: osx
+
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                         ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gcc --without-multilib ; fi
