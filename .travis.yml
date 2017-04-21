@@ -21,6 +21,7 @@ matrix:
       before_install:
         - brew update
         - brew install mongodb
+        - brew services start mongodb
         - brew install gcc
 
 install:
