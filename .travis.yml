@@ -1,13 +1,13 @@
-language: python
-    python:
-        - "2.7"
-        - "3.5"
-        - "3.6"
 sudo: false
+language: python
 
 matrix:
   include:
     - os: linux
+      python:
+        - "2.7"
+        - "3.5"
+        - "3.6"
       dist: precise
       addons:
         apt:
@@ -20,6 +20,8 @@ matrix:
         - mongodb
     
     - os: osx
+      python:
+        - "2.7"
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                         ; fi
