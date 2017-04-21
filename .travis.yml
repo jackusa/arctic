@@ -20,6 +20,7 @@ matrix:
       language: generic
       before_install:
         - brew update
+        - brew install mongodb
         - brew install gcc
         - virtualenv env -p python
         - source env/bin/activate
