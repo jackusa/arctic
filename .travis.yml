@@ -17,11 +17,13 @@ matrix:
         - mongodb
     
     - os: osx
-      python: 2.7
-
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                         ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gcc --without-multilib ; fi
+      language: generic
+      before_install:
+        - brew update
+        - brew install gcc --without-multilib
+        - brew install python
+        - virtualenv env -p python
+        - source env/bin/activate
 
 install:
   - mongo --version
